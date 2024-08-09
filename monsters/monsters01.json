@@ -1,0 +1,132 @@
+{
+  "types": [
+    {
+      "name": "fuego",
+      "strengths": ["planta", "normal"],
+      "weakness": ["agua", "tierra"]
+    },
+    {
+      "name": "normal"
+    },
+    {
+      "name": "agua",
+      "strengths": ["fuego"],
+      "weakness": ["electrico"]
+    },
+    {
+      "name": "planta",
+      "strengths": ["tierra"],
+      "weakness": ["fuego"]
+    },
+    {
+      "name": "electrico",
+      "strengths": ["agua"],
+      "weakness": ["tierra"]
+    },
+    {
+      "name": "tierra",
+      "strengths": ["electrico"],
+      "weakness": ["planta"]
+    }
+  ],
+  "monsters": [
+    {
+      "name": "Fueguin",
+      "type": "fuego",
+      "energy": 80,
+      "defense": 1,
+      "moves": [
+        {
+          "name": "llama",
+          "type": "fuego",
+          "attack": 20,
+          "defense": 1
+        },
+        {
+          "name": "incendio",
+          "type": "fuego",
+          "attack": 30,
+          "defense": 0.9
+        },
+        {
+          "name": "barrera",
+          "type": "normal",
+          "attack": 0,
+          "defense": 1.2
+        }
+      ]
+    },
+    {
+      "name": "Aguatero",
+      "type": "agua",
+      "energy": 90,
+      "defense": 1.1,
+      "moves": [
+        {
+          "name": "manguera",
+          "type": "agua",
+          "attack": 20,
+          "defense": 1
+        },
+        {
+          "name": "lluvia",
+          "type": "agua",
+          "attack": 25,
+          "defense": 0.9
+        },
+        {
+          "name": "arenita",
+          "type": "tierra",
+          "attack": 10,
+          "defense": 1
+        }
+      ]
+    },
+    {
+      "name": "Cactus",
+      "type": "planta",
+      "energy": 70,
+      "defense": 1.2,
+      "moves": [
+        {
+          "name": "púas",
+          "type": "planta",
+          "attack": 25,
+          "defense": 1
+        },
+        {
+          "name": "aguas",
+          "type": "agua",
+          "attack": 25,
+          "defense": 1
+        }
+      ]
+    },
+    {
+      "name": "Rasho",
+      "type": "electrico",
+      "energy": 90,
+      "defense": 1,
+      "moves": [
+        {
+          "name": "golpe",
+          "type": "normal",
+          "attack": 15,
+          "defense": 1
+        },
+        {
+          "name": "trueno",
+          "type": "electrico",
+          "attack": 30,
+          "defense": 0.9
+        },
+        {
+          "name": "campo magnetico",
+          "type": "electrico",
+          "attack": 10,
+          "defense": 1.2
+        }
+      ]
+    }
+  ]
+}

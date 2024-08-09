@@ -1,0 +1,126 @@
+{
+  "types": [
+    {
+      "name": "fuego",
+      "strengths": ["planta", "hielo"],
+      "weakness": ["agua"]
+    },
+    {
+      "name": "normal"
+    },
+    {
+      "name": "agua",
+      "strengths": ["fuego"],
+      "weakness": ["fuego", "hielo"]
+    },
+    {
+      "name": "planta",
+      "weakness": ["fuego", "hielo"]
+    },
+    {
+      "name": "hielo",
+      "strengths": ["planta", "normal"],
+      "weakness": ["fuego", "agua"]
+    }
+  ],
+  "monsters": [
+    {
+      "name": "Fueguin",
+      "type": "fuego",
+      "energy": 80,
+      "defense": 1,
+      "moves": [
+        {
+          "name": "llama",
+          "type": "fuego",
+          "attack": 20,
+          "defense": 1
+        },
+        {
+          "name": "incendio",
+          "type": "fuego",
+          "attack": 30,
+          "defense": 0.9
+        },
+        {
+          "name": "barrera",
+          "type": "normal",
+          "attack": 0,
+          "defense": 1.2
+        }
+      ]
+    },
+    {
+      "name": "Aguatero",
+      "type": "agua",
+      "energy": 90,
+      "defense": 1.1,
+      "moves": [
+        {
+          "name": "manguera",
+          "type": "agua",
+          "attack": 20,
+          "defense": 1
+        },
+        {
+          "name": "lluvia",
+          "type": "agua",
+          "attack": 25,
+          "defense": 0.9
+        },
+        {
+          "name": "golpe",
+          "type": "normal",
+          "attack": 10,
+          "defense": 1
+        }
+      ]
+    },
+    {
+      "name": "Cactus",
+      "type": "planta",
+      "energy": 70,
+      "defense": 1.2,
+      "moves": [
+        {
+          "name": "púas",
+          "type": "planta",
+          "attack": 25,
+          "defense": 1
+        },
+        {
+          "name": "aguas",
+          "type": "agua",
+          "attack": 25,
+          "defense": 1
+        }
+      ]
+    },
+    {
+      "name": "Hielin",
+      "type": "hielo",
+      "energy": 120,
+      "defense": 0.8,
+      "moves": [
+        {
+          "name": "congelamiento",
+          "type": "hielo",
+          "attack": 30,
+          "defense": 0.9
+        },
+        {
+          "name": "iceberg",
+          "type": "hielo",
+          "attack": 5,
+          "defense": 1.3
+        },
+        {
+          "name": "viento helado",
+          "type": "hielo",
+          "attack": 20,
+          "defense": 1
+        }
+      ]
+    }
+  ]
+}
