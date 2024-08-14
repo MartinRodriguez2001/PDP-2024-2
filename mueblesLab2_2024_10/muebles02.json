@@ -1,0 +1,96 @@
+[
+    {
+        "type": "Nightstand",
+        "model": "KULLEN2",
+        "width": 20,
+        "height": 40,
+        "depth": 20,
+        "colors": ["black", "white", "blue", "wood"],
+        "spaces": ["bedroom", "deskroom", "bathroom"],
+        "material": "glass"
+    },
+    {
+        "type": "Cupboard",
+        "model": "GURSKEN",
+        "width": 49,
+        "height": 186,
+        "depth": 55,
+        "spaces": ["bedroom", "livingroom"],
+        "colors": ["beige"],
+        "doors_count": 2,
+        "doors_material": "plastic"
+    },
+    {
+        "type": "Nightstand",
+        "model": "VIKHAMMER",
+        "width": 50,
+        "height": 75,
+        "depth": 49,
+        "colors": ["blue", "black", "white"],
+        "spaces": ["bedroom", "deskroom", "kitchen"],
+        "material": "steel"
+    },
+    {
+        "type": "Cupboard",
+        "model": "RAKKESTAD",
+        "width": 117,
+        "height": 176,
+        "depth": 55,
+        "colors": ["black"],
+        "spaces": ["bedroom", "deskroom"],
+        "doors_count": 2,
+        "doors_material": "plastic"
+    },
+    {
+        "type": "Cupboard",
+        "model": "NORDKISA",
+        "width": 120,
+        "height": 186,
+        "depth": 48,
+        "colors": ["wood"],
+        "spaces": ["bedroom", "livingroom", "kitchen"],
+        "doors_count": 0
+    },
+    {
+        "type": "Cupboard",
+        "model": "FORSAND",
+        "width": 75,
+        "height": 201,
+        "depth": 60,
+        "colors": ["white"],
+        "spaces": ["bedroom"],
+        "doors_count": 2,
+        "doors_material": "glass"
+    },
+    {
+        "type": "Nightstand",
+        "model": "BJÖRKSNÄS",
+        "width": 48,
+        "height": 69,
+        "depth": 38,
+        "colors": ["wood"],
+        "spaces": ["bedroom", "livingroom"],
+        "material": "wood"
+    },
+    {
+        "type": "Nightstand",
+        "model": "BJÖRKSNÄS2",
+        "width": 58,
+        "height": 69,
+        "depth": 42,
+        "colors": ["white"],
+        "spaces": ["bedroom", "livingroom", "kitchen"],
+        "material": "wood"
+    },
+    {
+        "type": "Cupboard",
+        "model": "FORSAND2",
+        "width": 70,
+        "height": 211,
+        "depth": 80,
+        "colors": ["white", "wood", "black", "red", "yellow"],
+        "spaces": ["bedroom"],
+        "doors_count": 4,
+        "doors_material": "glass"
+    }
+]

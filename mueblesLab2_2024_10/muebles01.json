@@ -1,0 +1,105 @@
+[
+    {
+        "type": "Nightstand",
+        "model": "KULLEN",
+        "width": 35,
+        "height": 49,
+        "depth": 40,
+        "colors": ["black", "white"],
+        "spaces": ["bedroom", "deskroom"],
+        "material": "plastic"
+    },
+    {
+        "type": "Nightstand",
+        "model": "VIKHAMMER",
+        "width": 40,
+        "height": 65,
+        "depth": 39,
+        "colors": ["blue", "black", "white"],
+        "spaces": ["bedroom", "deskroom", "kitchen"],
+        "material": "steel"
+    },
+    {
+        "type": "Nightstand",
+        "model": "BJÖRKSNÄS",
+        "width": 48,
+        "height": 69,
+        "depth": 38,
+        "colors": ["wood"],
+        "spaces": ["bedroom", "livingroom"],
+        "material": "wood"
+    },
+    {
+        "type": "DiningSet",
+        "model": "LANEBERG",
+        "width": 190,
+        "height": 75,
+        "depth": 80,
+        "colors": ["white"],
+        "spaces": ["diningroom", "kitchen"],
+        "seating": 6
+    },
+    {
+        "type": "DiningSet",
+        "model": "EKEDALEN",
+        "width": 180,
+        "height": 75,
+        "depth": 80,
+        "colors": ["white", "brown", "wood"],
+        "spaces": ["diningroom"],
+        "seating": 6
+    },
+    {
+        "type": "DiningSet",
+        "model": "EKEDALEN",
+        "width": 240,
+        "height": 75,
+        "depth": 90,
+        "colors": ["brown"],
+        "spaces": ["diningroom"],
+        "seating": 8
+    },
+    {
+        "type": "Cupboard",
+        "model": "GURSKEN",
+        "width": 49,
+        "height": 186,
+        "depth": 55,
+        "colors": ["beige"],
+        "spaces": ["bedroom", "livingroom"],
+        "doors_count": 1,
+        "doors_material": "plastic"
+    },
+    {
+        "type": "Cupboard",
+        "model": "RAKKESTAD",
+        "width": 117,
+        "height": 176,
+        "depth": 55,
+        "colors": ["black"],
+        "spaces": ["bedroom", "deskroom"],
+        "doors_count": 2,
+        "doors_material": "plastic"
+    },
+    {
+        "type": "Cupboard",
+        "model": "NORDKISA",
+        "width": 120,
+        "height": 186,
+        "depth": 48,
+        "colors": ["wood"],
+        "spaces": ["bedroom", "livingroom", "kitchen"],
+        "doors_count": 0
+    },
+    {
+        "type": "Cupboard",
+        "model": "FORSAND",
+        "width": 75,
+        "height": 201,
+        "depth": 60,
+        "colors": ["white"],
+        "spaces": ["bedroom"],
+        "doors_count": 2,
+        "doors_material": "glass"
+    }
+]
