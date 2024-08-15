@@ -16,5 +16,14 @@
         "color": "blue",
         "fuel": "diesel",
         "load_capacity": 5
+    },
+    {
+        "type": "Car",
+        "brand": "Mercedez",
+        "model": "A200",
+        "year": 2019,
+        "color": "white",
+        "fuel": "diesel",
+        "doors": 4
     }
 ]

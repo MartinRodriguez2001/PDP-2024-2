@@ -69,6 +69,14 @@ class PriceFilter(Filters):
     def mostrarResultado(self, vehicle):
         pass
 
+class TypeVehicle:
+    def __init__(self):
+        self.pregunta = None
+    def preguntarFiltro(self):
+        self.pregunta = input("INGRESE EL TIPO DE VEHICULO QUE BUSCA: ")
+    def mostrarResultado(self, vehicle):
+        return self.pregunta.lower() == vehicle.type.lower()
+
 class Store:
     def __init__(self):
         self.vehicles = []
@@ -102,6 +110,7 @@ class Store:
             print("1. Filtro por Año de Fabricación")
             print("2. Filtro por Tipo de Combustible")
             print("3. Filtro por Precio")
+            print("4. Filtro de Tipo de Vehiculo")
             print("0. Salir")
 
             choice = int(input("Ingrese su elección: "))
@@ -114,18 +123,23 @@ class Store:
                 filter_instance = FuelTypeFilter()
             elif choice == 3:
                 filter_instance = PriceFilter()
+            elif choice == 4:
+                filter_instance = TypeVehicle()
             else:
                 print("Opción no válida, por favor intente de nuevo.")
                 continue
             
             filter_instance.preguntarFiltro()
-            filtered_vehicles = [v for v in self.vehicles if filter_instance.mostrarResultado(v)]
+            filtered_vehicles = []
+            for v in self.vehicles:
+                if filter_instance.mostrarResultado(v):
+                    filtered_vehicles.append(v)
 
             print("\nVehículos filtrados:")
             for vehicle in filtered_vehicles:
                 print(f"{vehicle} - Precio: {vehicle.price()}")
 store = Store()
-store.load_json('/Users/martinrodriguez/PDP-2024-2/vehicle.json')  # Asegúrate de tener un archivo JSON con los datos
+store.load_json('/Users/martinrodriguez/PDP-2024-2/vehiclesPOO/vehicle.json')
 store.start()
 
 
