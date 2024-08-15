@@ -1,0 +1,20 @@
+[
+    {
+        "type": "Car",
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": 2020,
+        "color": "red",
+        "fuel": "gasoline",
+        "doors": 4
+    },
+    {
+        "type": "Truck",
+        "brand": "Ford",
+        "model": "F-150",
+        "year": 2019,
+        "color": "blue",
+        "fuel": "diesel",
+        "load_capacity": 5
+    }
+]
