@@ -1,0 +1,43 @@
+[
+    {
+        "type": "Smartphone",
+        "brand": "Samsung",
+        "model": "Galaxy S21",
+        "year": 2021,
+        "color": "black",
+        "price": 799,
+        "screen_size": 6.2,
+        "battery_capacity": 4000
+    },
+    {
+        "type": "Laptop",
+        "brand": "Dell",
+        "model": "XPS 13",
+        "year": 2022,
+        "color": "silver",
+        "price": 1200,
+        "ram": 16,
+        "processor": "Intel"
+    },
+    {
+        "type": "Smartphone",
+        "brand": "Apple",
+        "model": "iPhone 13",
+        "year": 2021,
+        "color": "blue",
+        "price": 999,
+        "screen_size": 6.1,
+        "battery_capacity": 3095
+    },
+    {
+        "type": "Laptop",
+        "brand": "HP",
+        "model": "Spectre x360",
+        "year": 2023,
+        "color": "black",
+        "price": 1400,
+        "ram": 16,
+        "processor": "AMD"
+    }
+]
+
