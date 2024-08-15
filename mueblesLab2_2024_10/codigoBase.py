@@ -73,8 +73,10 @@ class FurnitureFilter(ABC):
     @abstractmethod
     def filtroBuscado(self, furniture):
         pass
+    @abstractmethod
     def preguntarFiltro(self):
         pass
+    @abstractmethod
     def mostrarResultado(self):
         pass
 
@@ -82,11 +84,21 @@ class ColorFilter(FurnitureFilter):
     def __init__(self):
       self.pregunta = None
     def filtroBuscado(self, furniture):
-       return self.color in furniture.colors
+       return self.pregunta in furniture.colors
     def preguntarFiltro(self):
        self.pregunta = input("INGRESE EL FILTRO QUE DESEA APLICAR")
     def mostrarResultado(self):
-       print(f"filtro de color: {self.color}")
+       print(f"filtro de color: {self.pregunta}")
+
+class VolumeFilter(FurnitureFilter):
+   def __init__(self):
+      pass
+   def filtroBuscado(self, furniture):
+      pass
+   def preguntaFiltro(self):
+      pass
+   def mostrarResultado(self):
+      pass
 
 
 
@@ -107,9 +119,31 @@ class Store:
     ...
 
   def start(self) -> None:
-    # Ud. deben implementarlo
-    ...
-
+     while True:
+        print("\nSeleccione un filtro para aplicar:")
+        print("1. Filtro por Color: ")
+        print("2. Filtro por Volumen: ")
+        print("3. Filtro por Precio: ")
+        print("0. Salir: ")
+        opcion = input("INGRESE UN FILTRO PARA APLICAR: ")
+        if opcion == 0:
+           pass
+        if opcion == 1:
+           instanciaFiltro = ColorFilter()
+        elif opcion == 2:
+           pass
+        elif opcion == 3:
+           pass
+        else:
+            print("OPCION INVALIDA, INGRESE DE NUEVO LA OPCION: ")
+            continue
+        
+        instanciaFiltro.preguntarFiltro()
+        filtered_furniture = [f for f in self._furnitures if instanciaFiltro.filtroBuscado(f)]
+        print("\nMuebles filtrados:")
+        for furniture in filtered_furniture:
+          print(f"Modelo: {furniture.model}, Precio: {furniture.price()}")
+                
   def show_furnitures(self) -> None:
     self._show_furnitures(self._furnitures)
 
