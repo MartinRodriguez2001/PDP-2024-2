@@ -1,0 +1,54 @@
+{
+    "robots": [
+        {
+            "name": "fuego",
+            "energy": 76,
+            "attacks": [
+                {
+                    "name": "arco",
+                    "type": "long",
+                    "objetive": "team",
+                    "damage": 20,
+                    "precision": 80,
+                    "recharge": 1
+                },
+                {
+                    "name": "cabezazo",
+                    "type": "long",
+                    "objetive": "team",
+                    "damage": 20,
+                    "precision": 80,
+                    "recharge": 1
+                },
+                {
+                    "name": "cabezazo",
+                    "type": "hand",
+                    "objetive": "robot",
+                    "damage": 16,
+                    "precision": 96,
+                    "recharge": 0
+                }
+            ],
+            "skills": [
+                {
+                    "name": "posion",
+                    "trigger": "energy",
+                    "trigger_value": 80,
+                    "duration": 2,
+                    "objective": "team",
+                    "effect": "magic",
+                    "effect_value": 10
+                },
+                {
+                    "name": "fuerza lenta",
+                    "trigger": "turns",
+                    "trigger_value": 3,
+                    "duration": 1,
+                    "objective": "robot",
+                    "effect": "steroids",
+                    "effect_value": 30
+                }
+            ]
+        }
+    ]
+}

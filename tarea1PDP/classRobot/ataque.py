@@ -7,3 +7,9 @@ class Ataque:
         self.precision = precision
         self.recarga = recarga
         self.turnos_restantes = turnos_restantes
+    
+    def puede_usarse(self):
+        pass
+    
+    def usar(self):
+        pass
