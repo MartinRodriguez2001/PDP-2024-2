@@ -13,11 +13,14 @@ class Habilidad:
     def isActive(self):
         return self.activo
     
+    def get_efecto(self):
+        return self.efecto
+    
     def activar(self):
-        return self.activo == True
+        self.activo == True
 
     def desactivar(self):
-        return self.activo == False
+        self.activo == False
 
     def aplicar_efecto(self, robot):
         pass
