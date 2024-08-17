@@ -1,8 +1,10 @@
-class Batala:
-    def __init__(self, turnos):
+class Batalla:
+    def __init__(self, r1, r2, turnos):
         self.turnos = turnos
         self.robots = []
         self.ganador = []
+        self.r1 = r1
+        self.r2 = r2
     
     def iniciar_batalla(self):
         pass
