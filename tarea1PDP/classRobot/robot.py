@@ -1,6 +1,4 @@
 import random
-from ataque import Ataque
-from habilidad import Habilidad
 
 class Robot:
     def __init__(self, nombre, energia):
@@ -36,7 +34,7 @@ class Robot:
     def add_habilidades(self, habilidad):
         self.habilidades.append(habilidad)
     
-    def get_name(self):
+    def get_nombre(self):
         return self.nombre
     
     def get_energia(self):
@@ -53,27 +51,10 @@ class Robot:
     
     def atacar(self, robot, ataque):
         daño = ataque.get_daño()
-        energia_atacado = robot.get_energia_actual()
-        energia_atacado = energia_atacado - daño
+        robot.recibir_daño(daño)
 
     def acivar_habilidad(self, evento):
         pass
 
     def recibir_daño(self, daño):
-        self.energia = self.energia - daño
-
-diarrea = Ataque("diarrea", "liquido", "team", 5, 95, 1, 1)
-diarreaexplosiva = Habilidad("diarrea explosiva", "attack_type", 2, "robot", "magic")
-robot1 = Robot("el cacas", 50)
-robot2 = Robot("el peos", 50)
-robot1.add_ataques(diarrea)
-robot1.add_habilidades(diarreaexplosiva)
-
-robot2.add_ataques(diarrea)
-robot2.add_habilidades(diarreaexplosiva)
-
-robot1.get_info_robot()
-robot2.get_info_robot()
-
-robot1.atacar(robot2, diarrea)
-robot2.get_info_robot()
+        self.energia_actual -= daño
