@@ -50,11 +50,3 @@ class Ataque:
         else:
             return f"EL ATAQUE {self.nombre.upper()} NO PUEDE USARSE, SE ESTA RECARGANDO. TURNOS RESTANTES: {self.turnos_restantes}"
 
-
-ataque1= Ataque("rasengan", "hand", "robot", 10, 97, 1, 0)
-print(ataque1.puede_usarse())
-print(ataque1.get_turnos_restantes())
-ataque1.usar()
-print(ataque1.get_turnos_restantes())
-print(ataque1.puede_usarse())
-print(ataque1.usar())

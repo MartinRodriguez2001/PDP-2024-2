@@ -20,10 +20,7 @@ class Batalla:
         while self.r1.energia_actual > 0 and self.r2.energia_actual > 0:
             self.turno(atacante, defensor)
             atacante, defensor = defensor, atacante
-            if self.r1.energia_actual > 0:
-                print(f"EL GANADOR ES {self.r1.get_nombre().upper()}")
-            else: 
-                print(f"EL GANADOR ES {self.r2.get_nombre().upper()}")
+            self.finalizar_batalla()
 
 
 
@@ -34,20 +31,25 @@ class Batalla:
 
 
     def finalizar_batalla(self):
-        pass
+        if self.r1.energia_actual > 0:
+            print(f"EL GANADOR ES {self.r1.get_nombre().upper()}")
+        else: 
+            print(f"EL GANADOR ES {self.r2.get_nombre().upper()}")
 
 
-diarrea = Ataque("diarrea", "liquido", "team", 5, 95, 1, 1)
-diarreaexplosiva = Habilidad("diarrea explosiva", "attack_type", 2, "robot", "magic")
+rasengan = Ataque("Rasengan", "hand", "robot", 5, 95, 1, 1)
+rasenshuriken = Habilidad("RasenShuriken", "attack_type", 2, "robot", "magic")
 
-robot1 = Robot("el cacas", 50)
-robot2 = Robot("el peos", 50)
+chidori = Ataque("Chidori", "hand", "robot", 5, 95, 1, 1)
 
-robot1.add_ataques(diarrea)
-robot1.add_habilidades(diarreaexplosiva)
+robot1 = Robot("Naruto", 50)
+robot2 = Robot("Sasuke", 50)
 
-robot2.add_ataques(diarrea)
-robot2.add_habilidades(diarreaexplosiva)
+robot1.add_ataques(rasengan)
+robot1.add_habilidades(rasenshuriken)
+
+robot2.add_ataques(chidori)
+robot2.add_habilidades(rasenshuriken)
 
 batalla1 = Batalla(robot1, robot2, 10)
 batalla1.iniciar_batalla()
