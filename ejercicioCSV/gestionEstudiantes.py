@@ -1,0 +1,81 @@
+import csv
+
+class Estudiantes:
+    def __init__(self, nombre, edad, grado, nota_final):
+        self.nombre = nombre
+        self.edad = edad 
+        self.grado = grado
+        self.nota_final = nota_final
+
+    def __str__(self):
+        return f"ESTUDIANTE: {self.nombre}, EDAD: {self.edad}, GRADO: {self.grado}, NOTA FINAL: {self.nota_final}"
+    
+    def get_nombre(self):
+        return self.nombre
+    
+    def get_edad(self):
+        return self.edad
+    
+    def get_grado(self):
+        return self.grado
+    
+class Escuela:
+    def __init__(self):
+        self.estudiantes = []
+
+    def cargar_estudiantes(self,desde_archivo):
+        with open(desde_archivo, newline ="", encoding = "utf-8") as f:
+            lector = csv.reader(f)
+            next(lector)
+            for fila in lector:
+                nombre, edad, grado, nota_final = fila
+                estudiante = Estudiantes(nombre, int(edad), int(grado), int(nota_final))
+                self.estudiantes.append(estudiante)
+
+    def listar_estudiantes(self):
+        for estudiante in self.estudiantes:
+            print(estudiante)
+
+    def calcular_promedio(self):
+        if not self.estudiantes:
+            return 0
+        
+        total_notas = sum(estudiante.nota_final for estudiante in self.estudiantes)
+        return total_notas / len(self.estudiantes)
+    
+    def mejor_estudiante(self):
+        if not self.estudiantes:
+            return None
+        return max(self.estudiantes, key=lambda e: e.nota_final)
+
+def menu():
+    escuela = Escuela()
+    while True:
+        print("GESTION DE ESTUDIANTES")
+        print("1. CARGAR ESTUDIANTES: ")
+        print("2. LISTAR ESTUDIANTES: ")
+        print("3. CALCULAR PROMEDIO: ")
+        print("4. MEJOR ESTUDIANTE: ")
+        print("5. SALIR")
+
+        opcion = int(input("INGRESA UNA DE LAS SIGUIENTES OPCIONES: "))
+
+        if opcion == 1:
+            datos = input("INGRESA LA RUTA DE ACCESO DEL ARCHIVO: ")
+            escuela.cargar_estudiantes(datos)
+        
+        elif opcion == 2: 
+            escuela.listar_estudiantes()
+        
+        elif opcion == 3:
+            print(escuela.calcular_promedio())
+        
+        elif opcion == 4:
+            print(escuela.mejor_estudiante())
+        
+        elif opcion == 5:
+            break
+
+        else: 
+            continue
+menu()
