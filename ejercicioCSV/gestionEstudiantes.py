@@ -58,30 +58,28 @@ class Escuela:
 
 def menu():
     escuela = Escuela()
+    datos = input("INGRESA LA RUTA DE ACCESO DEL ARCHIVO: ")
+    escuela.cargar_estudiantes_csv(datos)
+    
     while True:
+
         print("GESTION DE ESTUDIANTES")
-        print("1. CARGAR ESTUDIANTES: ")
-        print("2. LISTAR ESTUDIANTES: ")
-        print("3. CALCULAR PROMEDIO: ")
-        print("4. MEJOR ESTUDIANTE: ")
-        print("5. SALIR")
-
+        print("1. LISTAR ESTUDIANTES: ")
+        print("2. CALCULAR PROMEDIO: ")
+        print("3. MEJOR ESTUDIANTE: ")
+        print("4. SALIR")
         opcion = int(input("INGRESA UNA DE LAS SIGUIENTES OPCIONES: "))
-
-        if opcion == 1:
-            datos = input("INGRESA LA RUTA DE ACCESO DEL ARCHIVO: ")
-            escuela.cargar_estudiantes(datos)
         
-        elif opcion == 2: 
+        if opcion == 1: 
             escuela.listar_estudiantes()
         
-        elif opcion == 3:
+        elif opcion == 2:
             print(escuela.calcular_promedio())
         
-        elif opcion == 4:
+        elif opcion == 3:
             print(escuela.mejor_estudiante())
         
-        elif opcion == 5:
+        elif opcion == 4:
             break
 
         else: 
