@@ -1,4 +1,5 @@
 import csv
+import json
 
 class Estudiantes:
     def __init__(self, nombre, edad, grado, nota_final):
@@ -23,13 +24,20 @@ class Escuela:
     def __init__(self):
         self.estudiantes = []
 
-    def cargar_estudiantes(self,desde_archivo):
+    def cargar_estudiantes_csv(self,desde_archivo):
         with open(desde_archivo, newline ="", encoding = "utf-8") as f:
             lector = csv.reader(f)
             next(lector)
             for fila in lector:
                 nombre, edad, grado, nota_final = fila
                 estudiante = Estudiantes(nombre, int(edad), int(grado), int(nota_final))
+                self.estudiantes.append(estudiante)
+    
+    def carga_estudiantes_json(self, desde_archivo):
+        with open(desde_archivo, "r", enconding = "utf-8") as f:
+            datos_estudiantes = json.load(f)
+            for datos in datos_estudiantes:
+                estudiante = Estudiantes(datos["nombre"], datos["edad"], datos["grado"], datos["nota_final"])
                 self.estudiantes.append(estudiante)
 
     def listar_estudiantes(self):
