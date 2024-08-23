@@ -5,7 +5,7 @@ class Habilidad:
         self.duracion = duracion
         self.objetivo = objetivo
         self.efecto = efecto
-        self.activo = bool
+        self.activo = False
     
     def get_nombre_habilidad(self):
         return self.nombre
@@ -17,12 +17,14 @@ class Habilidad:
         return self.efecto
     
     def activar(self):
-        self.activo == True
+        self.activo = True
 
     def desactivar(self):
-        self.activo == False
+        self.activo = False
 
     def aplicar_efecto(self, robot):
         pass
+
+
     
 
