@@ -1,5 +1,5 @@
 class Ataque:
-    def __init__(self, nombre, tipo, objetivo, daño, precision, recarga, turnos_restantes):
+    def __init__(self, nombre, tipo, objetivo, daño, precision, recarga, turnos_restantes = 0):
         #indica el nombre del ataque
         self.nombre = nombre
         #long o sword o hand
