@@ -51,10 +51,20 @@ class Robot:
     
     def atacar(self, robot, ataque):
         daño = ataque.get_daño()
-        robot.recibir_daño(daño)
+        precision = ataque.get_precision()
+        probabilidad = random.randint(10, 100)
+
+        if probabilidad <= precision:
+            print(f"EL ATAQUE {ataque.get_nombre_ataque()} ACERTÓ")
+            robot.recibir_daño(daño)
+        else: 
+            print(f"EL ATAQUE {ataque.get_nombre_ataque()} FALLÓ")
 
     def acivar_habilidad(self, evento):
         pass
 
     def recibir_daño(self, daño):
         self.energia_actual -= daño
+    
+    def reset_stats(self):
+        self.energia_actual = self.energia
