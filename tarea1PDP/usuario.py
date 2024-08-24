@@ -1,5 +1,3 @@
-from classRobot.robot import Robot
-from classRobot.ataque import Ataque
 from batalla import Batalla
 from main import RobotLoader
 
@@ -13,14 +11,14 @@ class Usuario:
             print("----PELEAS DE ROBOTS EN VIVO----")
             print("SELECCIONAR TIPO DE PELEA")
             print("1. COMBATE 1 VS 1")
-            print("2. LIGA")
+            print("2. LIGA (PROXIMAMENTE)")
             print("3. PLAYOFF (PROXIMAMENTE)")
             print("4. TORNEO (PROXIMAMENTE)")  
             print("5. SALIR")
 
             self.modo_juego = int(input("INGRESE UNA OPCION: "))
             print("\n")
-            nombre_archivo = '/Users/martinrodriguez/PDP-2024-2/tarea1PDP/data.json'  # Asegúrate de que este archivo exista y contenga datos válidos
+            nombre_archivo = '/Users/martinrodriguez/PDP-2024-2/tarea1PDP/naruto.json'  # Asegúrate de que este archivo exista y contenga datos válidos
             loader = RobotLoader(nombre_archivo)
             robots = loader.cargar_robots()
 
@@ -42,6 +40,6 @@ class Usuario:
             else: 
                 print("OPCION INVALIDA. VUELVA A SELECCIONAR UNA OPCION\n")
                 continue
-            
+
 usuario1 = Usuario()
 usuario1.opcion_menu()
