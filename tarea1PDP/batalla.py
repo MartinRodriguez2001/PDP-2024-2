@@ -17,6 +17,7 @@ class Batalla:
         print("INFORMACION DE LOS PARTICIPANTES: ")
         r1.get_info_robot()
         r2.get_info_robot()
+        time.sleep(2)
 
         atacante, defensor = r1, r2
         while r1.energia_actual > 0 and r2.energia_actual > 0:
@@ -24,6 +25,8 @@ class Batalla:
             time.sleep(1)
             atacante, defensor = defensor, atacante
             self.finalizar_batalla(r1, r2)
+        r1.reset_stats()
+        r2.reset_stats()
 
     #ELECCION DE PERSONAJE POR EL USUARIO
     def movimientos_batalla_usuario(self):
@@ -57,7 +60,6 @@ class Batalla:
         atacante.atacar(defensor, mov)
         print(f"{atacante.get_nombre().upper()} USO {mov.get_nombre_ataque().upper()} CONTRA {defensor.get_nombre().upper()}. {defensor.get_nombre().upper()} TIENE {defensor.get_energia_actual()} DE ENERGIA\n")
 
-
     def finalizar_batalla(self, r1, r2):
         if r1.energia_actual > 0 and r2.energia_actual <= 0:
             print(f"EL GANADOR ES {r1.get_nombre().upper()}")
@@ -72,28 +74,31 @@ class Batalla:
         self.preguntar_ataque = input("INGRESE EL ATAQUE DE DESEA UTILIZAR: ")
 
     def elegir_personaje(self):
-        print("Lista de personajes disponibles:")
-        nombres = [robot.get_nombre() for robot in self.robots]
-        for idx, nombre in enumerate(nombres, start=1):
-            print(f"{idx}. {nombre}")
-        try:
-            seleccion1 = int(input("Selecciona el primer personaje (ingresa el número): ")) - 1
-            seleccion2 = int(input("Selecciona el segundo personaje (ingresa el número): ")) - 1
+        while True:
+            print("LISTA DE PERSONAJES DISPONIBLES:")
+            nombres = [robot.get_nombre() for robot in self.robots]
+            for idx, nombre in enumerate(nombres, start=1):
+                print(f"{idx}. {nombre}")
+            print("0. VOLVER")
+            try:   
+                seleccion1 = int(input("SELECCIONA EL PRIMER PERSONAJE (INGRESA EL NUMERO)): ")) - 1
+                seleccion2 = int(input("SELECCIONA EL SEGUNDO PERSONAJE (INGRESA EL NUMERO): ")) - 1
 
-            if seleccion1 < 0 or seleccion1 >= len(self.robots) or seleccion2 < 0 or seleccion2 >= len(self.robots):
-                print("Selección no válida. Por favor selecciona números válidos de la lista.")
-                return None, None
+                if seleccion1 < 0 or seleccion1 >= len(self.robots) or seleccion2 < 0 or seleccion2 >= len(self.robots):
+                    print("SELECCION INVALIDA. INGRESE NUEVAMENTE")
+                    continue
+                    
+                if seleccion1 == seleccion2:
+                    print("NO SE PUEDE SELECCIONAR EL MISMO PERSONAJE")
+                    continue
+
+                personaje1 = self.robots[seleccion1]
+                personaje2 = self.robots[seleccion2]
+                
+                return personaje1, personaje2
             
-            if seleccion1 == seleccion2:
-                print("No puedes seleccionar el mismo personaje dos veces.")
-                return None, None
-        
-            personaje1 = self.robots[seleccion1]
-            personaje2 = self.robots[seleccion2]
-        
-            return personaje1, personaje2
-    
-        except ValueError:
-            print("Entrada no válida. Por favor, ingresa un número.")
+            except ValueError:
+                print("ERROR: LA ENTRADA NO CORRESPONE")
+                continue
 
 
