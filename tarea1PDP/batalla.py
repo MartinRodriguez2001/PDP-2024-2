@@ -35,7 +35,7 @@ class Batalla:
         while True:
             print("INGRESE EL TIPO DE BATALLA")
             print("1. ALEATORIA")
-            print("2. NORMAL")
+            print("2. NORMAL (PROXIMAMENTE)")
             print("3. VOLVER")
 
             self.opcion = int(input("INGRESA EL TIPO DE BATALLA: "))
@@ -44,7 +44,8 @@ class Batalla:
                 r1, r2 = self.elegir_personaje()
                 self.movimientos_batalla_aleatoria(r1, r2)
             elif self.opcion == 2:
-                self.movimientos_batalla_usuario()
+                #self.movimientos_batalla_usuario()
+                pass
             elif self.opcion == 3:
                 break
     
@@ -54,7 +55,7 @@ class Batalla:
     def turno(self, atacante, defensor):
         mov = atacante.random_ataque()
         atacante.atacar(defensor, mov)
-        print(f"{atacante.get_nombre().upper()} USO {mov.get_nombre_ataque().upper()} CONTRA {defensor.get_nombre().upper()}. {defensor.get_nombre().upper()} TIENE {defensor.get_energia_actual()} DE ENERGIA")
+        print(f"{atacante.get_nombre().upper()} USO {mov.get_nombre_ataque().upper()} CONTRA {defensor.get_nombre().upper()}. {defensor.get_nombre().upper()} TIENE {defensor.get_energia_actual()} DE ENERGIA\n")
 
 
     def finalizar_batalla(self, r1, r2):
@@ -69,27 +70,30 @@ class Batalla:
     def elegir_ataque(self, robot):
         print(f"ATAQUES DISPONIBLES: {robot.get_ataques()}")
         self.preguntar_ataque = input("INGRESE EL ATAQUE DE DESEA UTILIZAR: ")
-    
+
     def elegir_personaje(self):
         print("Lista de personajes disponibles:")
         nombres = [robot.get_nombre() for robot in self.robots]
         for idx, nombre in enumerate(nombres, start=1):
             print(f"{idx}. {nombre}")
-    
-        seleccion1 = int(input("Selecciona el primer personaje (ingresa el número): ")) - 1
-        seleccion2 = int(input("Selecciona el segundo personaje (ingresa el número): ")) - 1
+        try:
+            seleccion1 = int(input("Selecciona el primer personaje (ingresa el número): ")) - 1
+            seleccion2 = int(input("Selecciona el segundo personaje (ingresa el número): ")) - 1
 
-        if seleccion1 < 0 or seleccion1 >= len(self.robots) or seleccion2 < 0 or seleccion2 >= len(self.robots):
-            print("Selección no válida. Por favor selecciona números válidos de la lista.")
-            return None, None
+            if seleccion1 < 0 or seleccion1 >= len(self.robots) or seleccion2 < 0 or seleccion2 >= len(self.robots):
+                print("Selección no válida. Por favor selecciona números válidos de la lista.")
+                return None, None
+            
+            if seleccion1 == seleccion2:
+                print("No puedes seleccionar el mismo personaje dos veces.")
+                return None, None
         
-        if seleccion1 == seleccion2:
-            print("No puedes seleccionar el mismo personaje dos veces.")
-            return None, None
+            personaje1 = self.robots[seleccion1]
+            personaje2 = self.robots[seleccion2]
         
-        personaje1 = self.robots[seleccion1]
-        personaje2 = self.robots[seleccion2]
-        
-        return personaje1, personaje2
+            return personaje1, personaje2
+    
+        except ValueError:
+            print("Entrada no válida. Por favor, ingresa un número.")
 
 
