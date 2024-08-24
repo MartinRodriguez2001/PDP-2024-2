@@ -1,0 +1,424 @@
+{
+    "robots": [
+        {
+            "name": "Naruto Uzumaki",
+            "energy": 100,
+            "attacks": [
+                {
+                    "name": "Rasengan",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 25,
+                    "precision": 90,
+                    "recharge": 2
+                },
+                {
+                    "name": "Shadow Clone Jutsu",
+                    "type": "special",
+                    "objective": "team",
+                    "damage": 20,
+                    "precision": 100,
+                    "recharge": 3
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Nine-Tails Chakra Mode",
+                    "trigger": "energy",
+                    "trigger_value": 50,
+                    "duration": 3,
+                    "objective": "self",
+                    "effect": "boost",
+                    "effect_value": 30
+                },
+                {
+                    "name": "Sage Mode",
+                    "trigger": "turns",
+                    "trigger_value": 4,
+                    "duration": 2,
+                    "objective": "self",
+                    "effect": "regeneration",
+                    "effect_value": 10
+                }
+            ]
+        },
+        {
+            "name": "Sasuke Uchiha",
+            "energy": 90,
+            "attacks": [
+                {
+                    "name": "Chidori",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 25,
+                    "precision": 85,
+                    "recharge": 3
+                },
+                {
+                    "name": "Fireball Jutsu",
+                    "type": "long",
+                    "objective": "robot",
+                    "damage": 26,
+                    "precision": 95,
+                    "recharge": 2
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Sharingan",
+                    "trigger": "energy",
+                    "trigger_value": 40,
+                    "duration": 2,
+                    "objective": "self",
+                    "effect": "precision boost",
+                    "effect_value": 20
+                },
+                {
+                    "name": "Susanoo",
+                    "trigger": "turns",
+                    "trigger_value": 5,
+                    "duration": 3,
+                    "objective": "self",
+                    "effect": "defense boost",
+                    "effect_value": 50
+                }
+            ]
+        },
+        {
+            "name": "Sakura Haruno",
+            "energy": 85,
+            "attacks": [
+                {
+                    "name": "Cherry Blossom Impact",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 20,
+                    "precision": 90,
+                    "recharge": 1
+                },
+                {
+                    "name": "Healing Jutsu",
+                    "type": "support",
+                    "objective": "team",
+                    "damage": 0,
+                    "precision": 100,
+                    "recharge": 2
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Strength of a Hundred Seal",
+                    "trigger": "energy",
+                    "trigger_value": 20,
+                    "duration": 4,
+                    "objective": "self",
+                    "effect": "regeneration",
+                    "effect_value": 15
+                },
+                {
+                    "name": "Medical Ninjutsu",
+                    "trigger": "turns",
+                    "trigger_value": 3,
+                    "duration": 2,
+                    "objective": "team",
+                    "effect": "healing",
+                    "effect_value": 25
+                }
+            ]
+        },
+        {
+            "name": "Kakashi Hatake",
+            "energy": 95,
+            "attacks": [
+                {
+                    "name": "Lightning Blade",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 30,
+                    "precision": 85,
+                    "recharge": 2
+                },
+                {
+                    "name": "Water Dragon Jutsu",
+                    "type": "long",
+                    "objective": "robot",
+                    "damage": 20,
+                    "precision": 90,
+                    "recharge": 3
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Sharingan Copy",
+                    "trigger": "turns",
+                    "trigger_value": 4,
+                    "duration": 3,
+                    "objective": "self",
+                    "effect": "boost",
+                    "effect_value": 25
+                },
+                {
+                    "name": "Kamui",
+                    "trigger": "energy",
+                    "trigger_value": 60,
+                    "duration": 1,
+                    "objective": "robot",
+                    "effect": "dimensional shift",
+                    "effect_value": 1
+                }
+            ]
+        },
+        {
+            "name": "Gaara",
+            "energy": 80,
+            "attacks": [
+                {
+                    "name": "Sand Coffin",
+                    "type": "long",
+                    "objective": "robot",
+                    "damage": 20,
+                    "precision": 80,
+                    "recharge": 2
+                },
+                {
+                    "name": "Sand Burial",
+                    "type": "long",
+                    "objective": "robot",
+                    "damage": 30,
+                    "precision": 75,
+                    "recharge": 3
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Absolute Defense",
+                    "trigger": "energy",
+                    "trigger_value": 30,
+                    "duration": 3,
+                    "objective": "self",
+                    "effect": "defense boost",
+                    "effect_value": 40
+                },
+                {
+                    "name": "Third Eye",
+                    "trigger": "turns",
+                    "trigger_value": 5,
+                    "duration": 2,
+                    "objective": "self",
+                    "effect": "detection",
+                    "effect_value": 1
+                }
+            ]
+        },
+        {
+            "name": "Rock Lee",
+            "energy": 85,
+            "attacks": [
+                {
+                    "name": "Leaf Hurricane",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 20,
+                    "precision": 95,
+                    "recharge": 1
+                },
+                {
+                    "name": "Primary Lotus",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 23,
+                    "precision": 80,
+                    "recharge": 3
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Eight Gates",
+                    "trigger": "energy",
+                    "trigger_value": 20,
+                    "duration": 4,
+                    "objective": "self",
+                    "effect": "speed boost",
+                    "effect_value": 35
+                },
+                {
+                    "name": "Drunken Fist",
+                    "trigger": "turns",
+                    "trigger_value": 2,
+                    "duration": 2,
+                    "objective": "self",
+                    "effect": "unpredictability",
+                    "effect_value": 10
+                }
+            ]
+        },
+        {
+            "name": "Neji Hyuga",
+            "energy": 90,
+            "attacks": [
+                {
+                    "name": "Eight Trigrams Palm Rotation",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 25,
+                    "precision": 85,
+                    "recharge": 2
+                },
+                {
+                    "name": "Gentle Fist",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 15,
+                    "precision": 90,
+                    "recharge": 1
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Byakugan",
+                    "trigger": "energy",
+                    "trigger_value": 40,
+                    "duration": 4,
+                    "objective": "self",
+                    "effect": "vision boost",
+                    "effect_value": 20
+                },
+                {
+                    "name": "Eight Trigrams Sixty-Four Palms",
+                    "trigger": "turns",
+                    "trigger_value": 3,
+                    "duration": 1,
+                    "objective": "robot",
+                    "effect": "disable",
+                    "effect_value": 1
+                }
+            ]
+        },
+        {
+            "name": "Shikamaru Nara",
+            "energy": 75,
+            "attacks": [
+                {
+                    "name": "Shadow Possession Jutsu",
+                    "type": "special",
+                    "objective": "robot",
+                    "damage": 10,
+                    "precision": 95,
+                    "recharge": 2
+                },
+                {
+                    "name": "Shadow Strangle Jutsu",
+                    "type": "special",
+                    "objective": "robot",
+                    "damage": 15,
+                    "precision": 85,
+                    "recharge": 3
+                }
+            ],
+            "skills": [
+                {
+                    "name": "IQ Over 200",
+                    "trigger": "energy",
+                    "trigger_value": 50,
+                    "duration": 5,
+                    "objective": "self",
+                    "effect": "strategy boost",
+                    "effect_value": 40
+                },
+                {
+                    "name": "Shadow Paralysis",
+                    "trigger": "turns",
+                    "trigger_value": 4,
+                    "duration": 2,
+                    "objective": "robot",
+                    "effect": "immobilize",
+                    "effect_value": 1
+                }
+            ]
+        },
+        {
+            "name": "Hinata Hyuga",
+            "energy": 80,
+            "attacks": [
+                {
+                    "name": "Gentle Step Twin Lion Fists",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 15,
+                    "precision": 90,
+                    "recharge": 2
+                },
+                {
+                    "name": "Eight Trigrams Air Palm",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 20,
+                    "precision": 85,
+                    "recharge": 1
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Byakugan Vision",
+                    "trigger": "energy",
+                    "trigger_value": 60,
+                    "duration": 3,
+                    "objective": "self",
+                    "effect": "vision boost",
+                    "effect_value": 25
+                },
+                {
+                    "name": "Protection of the Eight Trigrams Sixty-Four Palms",
+                    "trigger": "turns",
+                    "trigger_value": 3,
+                    "duration": 2,
+                    "objective": "team",
+                    "effect": "defense boost",
+                    "effect_value": 20
+                }
+            ]
+        },
+        {
+            "name": "Itachi Uchiha",
+            "energy": 100,
+            "attacks": [
+                {
+                    "name": "Amaterasu",
+                    "type": "long",
+                    "objective": "robot",
+                    "damage": 35,
+                    "precision": 80,
+                    "recharge": 3
+                },
+                {
+                    "name": "Tsukuyomi",
+                    "type": "special",
+                    "objective": "robot",
+                    "damage": 0,
+                    "precision": 95,
+                    "recharge": 4
+                }
+            ],
+            "skills": [
+                {
+                    "name": "Mangekyo Sharingan",
+                    "trigger": "energy",
+                    "trigger_value": 50,
+                    "duration": 3,
+                    "objective": "self",
+                    "effect": "precision boost",
+                    "effect_value": 30
+                },
+                {
+                    "name": "Susanoo Defense",
+                    "trigger": "turns",
+                    "trigger_value": 6,
+                    "duration": 4,
+                    "objective": "self",
+                    "effect": "defense boost",
+                    "effect_value": 50
+                }
+            ]
+        }
+    ]
+}
