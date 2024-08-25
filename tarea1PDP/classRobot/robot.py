@@ -53,7 +53,8 @@ class Robot:
         daño = ataque.get_daño()
         precision = ataque.get_precision()
         probabilidad = random.randint(10, 100)
-        ataque.usar()
+        ataque.usar() #¿SE PUEDE USAR EL ATAQUE? FALTA VER EL TEMA DE DISMINUCION DE TURNOS RESTANTES
+
         if probabilidad <= precision:
             print(f"EL ATAQUE {ataque.get_nombre_ataque()} ACERTÓ")
             robot.recibir_daño(daño)

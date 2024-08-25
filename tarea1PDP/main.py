@@ -32,7 +32,3 @@ class RobotLoader:
             robots.append(robot)
 
         return robots
-
-nombre_archivo = '/Users/martinrodriguez/PDP-2024-2/tarea1PDP/data.json'  # Asegúrate de que este archivo exista y contenga datos válidos
-loader = RobotLoader(nombre_archivo)
-robots = loader.cargar_robots()
