@@ -8,11 +8,11 @@ class Batalla:
         self.robots = robots
         self.ganador = []
         self.eleccion_personaje_usuario = None
-        self.opcion = None
-    
+        self.ganador = []
+        self.perdedor = []
 
     #ELECCION DE PERSONAJE ALEATORIO
-    def movimientos_batalla_aleatoria(self, r1, r2):
+    def batalla_aleatoria(self, r1, r2):
         print(f"BATALLA ENTRE {r1.get_nombre().upper()} Y {r2.get_nombre().upper()} VA A COMENZAR \n")
         print("INFORMACION DE LOS PARTICIPANTES: ")
         r1.get_info_robot()
@@ -20,14 +20,20 @@ class Batalla:
         time.sleep(2)
 
         atacante, defensor = r1, r2
-        while r1.energia_actual > 0 and r2.energia_actual > 0:
-            self.turno(atacante, defensor)
-            time.sleep(1)
-            atacante, defensor = defensor, atacante
-            self.finalizar_batalla(r1, r2)
+        self.movimientos_aleatorios_1v1(atacante, defensor)
+        self.resetear_stats(atacante, defensor)
 
+
+    def resetear_stats(self, r1, r2):
         r1.reset_stats()
         r2.reset_stats()
+    
+    def movimientos_aleatorios_1v1(self, r1, r2):
+        while r1.energia_actual > 0 and r2.energia_actual > 0:
+            self.turno(r1, r2)
+            time.sleep(1)
+            r1, r2 = r2, r1
+            self.finalizar_batalla(r1, r2)
 
     #ELECCION DE PERSONAJE POR EL USUARIO
     def movimientos_batalla_usuario(self):
@@ -41,41 +47,92 @@ class Batalla:
             print("1. ALEATORIA")
             print("2. NORMAL (PROXIMAMENTE)")
             print("3. VOLVER")
+
             try:
-                self.opcion = int(input("INGRESA EL TIPO DE BATALLA: "))
+                opcion = int(input("INGRESA EL TIPO DE BATALLA: "))
                 print("\n")
-                if self.opcion == 1:
+                if opcion == 1:
                     r1, r2 = self.elegir_personaje()
-                    self.movimientos_batalla_aleatoria(r1, r2)
-                elif self.opcion == 2:
+                    self.batalla_aleatoria(r1, r2)
+                    self.siguiente_pelea()
+
+                elif opcion == 2:
                     #self.movimientos_batalla_usuario()
                     pass
-                elif self.opcion == 3:
+                elif opcion == 3:
                     break
+
             except ValueError:
                 print("OPCION INVALIDA. INGRESE NUEVAMENTE")
                 continue
     
-    def iniciar(self):
-        self.opcion_batalla()
+    def siguiente_pelea(self):
+        while True:
+            print("1. SIGUIENTE PELEA")
+            print("2. REPORTE")
+            print("3. SALIR")
+            try:
+                opcion = int(input("INGRESE UNA OPCION: "))
+                print("\n")
+                if opcion == 1:
+                    r1, r2 = self.elegir_personaje()
+                    self.batalla_aleatoria(r1, r2)
+                
+                elif opcion == 2:
+                    pass
+                
+                elif opcion == 3:
+                    break
+            
+            except ValueError:
+                print("OPCION INVALIDA. INGRESE NUEVAMENTE")
+                continue
+
 
     def turno(self, atacante, defensor):
         mov = atacante.random_ataque()
-        atacante.atacar(defensor, mov)
+        atacante.atacar_robot(defensor, mov)
         print(f"{atacante.get_nombre().upper()} USO {mov.get_nombre_ataque().upper()} CONTRA {defensor.get_nombre().upper()}. {defensor.get_nombre().upper()} TIENE {defensor.get_energia_actual()} DE ENERGIA\n")
 
     def finalizar_batalla(self, r1, r2):
         if r1.energia_actual > 0 and r2.energia_actual <= 0:
             print(f"EL GANADOR ES {r1.get_nombre().upper()}")
+            r1.add_victoria()
+            r2.add_derrota()
+            #self.ganador.append(r1)
+            #self.perdedor.append(r2)
+        
         elif r1.energia_actual <= 0 and r2.energia_actual > 0:
             print(f"EL GANADOR ES {r2.get_nombre().upper()}")
+            r2.add_victoria()
+            r1.add_derrota()
+            #self.ganador.append(r2)
+            #self.perdedor.append(r1)
     
     def get_nombres_robots(self):
         return self.robots
 
+
+#ALGO RARO TIENE ESTO, NO LO HE REVISADO, PROBABLEMENTE TENGA ALGO MALO 
     def elegir_ataque(self, robot):
-        print(f"ATAQUES DISPONIBLES: {robot.get_ataques()}")
-        self.preguntar_ataque = input("INGRESE EL ATAQUE DE DESEA UTILIZAR: ")
+        while True:
+            print(f"ATAQUES DISPONIBLES: {robot.get_ataques()}")
+            nombres = [robot.get_ataques() for robot in self.robots]
+            for idx, nombre in enumerate(nombres, start = 1):
+                print(f"{idx}. {nombre}")
+            try:
+                preguntar_ataque = int(input("INGRESE EL ATAQUE DE DESEA UTILIZAR: "))
+
+                if preguntar_ataque < 0 or preguntar_ataque >= len(self.robots):
+                    print("SELECCION INVALIDA. INGRESE NUEVAMENTE")
+            
+                ataque = self.robots[preguntar_ataque] #AQUI
+                return ataque
+            
+            except ValueError:
+                print("ERROR: LA ENTRADA NO CORRESPONDE")
+                continue
+
 
     def elegir_personaje(self):
         while True:
@@ -83,7 +140,6 @@ class Batalla:
             nombres = [robot.get_nombre() for robot in self.robots]
             for idx, nombre in enumerate(nombres, start=1):
                 print(f"{idx}. {nombre}")
-            print("0. VOLVER")
             try:   
                 seleccion1 = int(input("SELECCIONA EL PRIMER PERSONAJE (INGRESA EL NUMERO)): ")) - 1
                 seleccion2 = int(input("SELECCIONA EL SEGUNDO PERSONAJE (INGRESA EL NUMERO): ")) - 1
@@ -104,5 +160,11 @@ class Batalla:
             except ValueError:
                 print("ERROR: LA ENTRADA NO CORRESPONE")
                 continue
+    
+    def get_ganadores(self):
+        return self.ganador
+    
+    def get_perdedor(self):
+        return self.perdedor
 
 
