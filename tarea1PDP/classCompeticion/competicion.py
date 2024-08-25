@@ -1,11 +1,13 @@
+from batalla import Batalla
 class Competicion:
-    def __init__(self, tipo):
-        self.robots = []
+    def __init__(self, robots):
+        self.robots = robots
         self.resultados = {}
-        self.tipo = tipo
     
     def iniciar_competencia(self):
-        pass
+        batalla1 = Batalla(self.robots)
+        batalla1.opcion_batalla()
 
-    def registrar_resultado(self, robot, resultado):
+
+    def registrar_resultado(self):
         pass
