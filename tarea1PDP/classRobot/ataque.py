@@ -41,8 +41,15 @@ class Ataque:
             return True
         else:
             return False
+    
+    def ataque_robot(self):
+        if self.objetivo == "robot":
+            return True
+        elif self.objetivo == "team":
+            return False
+        else: 
+            return True
         
-    #metodo para preguntar al ususario si desea utilizar la habilidad
     def usar(self):
         if self.puede_usarse() == True:
             self.turnos_restantes = self.turnos_restantes + self.recarga

@@ -25,6 +25,7 @@ class Batalla:
             time.sleep(1)
             atacante, defensor = defensor, atacante
             self.finalizar_batalla(r1, r2)
+
         r1.reset_stats()
         r2.reset_stats()
 
@@ -40,17 +41,20 @@ class Batalla:
             print("1. ALEATORIA")
             print("2. NORMAL (PROXIMAMENTE)")
             print("3. VOLVER")
-
-            self.opcion = int(input("INGRESA EL TIPO DE BATALLA: "))
-            print("\n")
-            if self.opcion == 1:
-                r1, r2 = self.elegir_personaje()
-                self.movimientos_batalla_aleatoria(r1, r2)
-            elif self.opcion == 2:
-                #self.movimientos_batalla_usuario()
-                pass
-            elif self.opcion == 3:
-                break
+            try:
+                self.opcion = int(input("INGRESA EL TIPO DE BATALLA: "))
+                print("\n")
+                if self.opcion == 1:
+                    r1, r2 = self.elegir_personaje()
+                    self.movimientos_batalla_aleatoria(r1, r2)
+                elif self.opcion == 2:
+                    #self.movimientos_batalla_usuario()
+                    pass
+                elif self.opcion == 3:
+                    break
+            except ValueError:
+                print("OPCION INVALIDA. INGRESE NUEVAMENTE")
+                continue
     
     def iniciar(self):
         self.opcion_batalla()
