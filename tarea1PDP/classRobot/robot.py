@@ -5,6 +5,8 @@ class Robot:
         self.nombre = nombre
         self.energia = energia
         self.energia_actual = energia
+        self.victorias = 0
+        self.derrotas = 0
         self.ataques = []
         self.habilidades = []
 
@@ -14,6 +16,8 @@ class Robot:
         print(f"|ENERGIA: {self.energia_actual}")
         print(f"|ATAQUES: {self.get_ataques()}")
         print(f"|HABILIDADES: {self.get_habilidades()}")
+        print(f"|VICTORIAS: {self.victorias}")
+        print(f"|DERROTAS: {self.derrotas}")
         print("----------------------")
     
     def add_ataques(self, ataque):
@@ -49,17 +53,32 @@ class Robot:
     def random_habilidad(self):
         return random.choice(self.habilidades)
     
-    def atacar(self, robot, ataque):
+    def atacar_robot(self, robot, ataque):
         daño = ataque.get_daño()
         precision = ataque.get_precision()
         probabilidad = random.randint(10, 100)
-        ataque.usar() #¿SE PUEDE USAR EL ATAQUE? FALTA VER EL TEMA DE DISMINUCION DE TURNOS RESTANTES
 
-        if probabilidad <= precision:
-            print(f"EL ATAQUE {ataque.get_nombre_ataque()} ACERTÓ")
-            robot.recibir_daño(daño)
-        else: 
-            print(f"EL ATAQUE {ataque.get_nombre_ataque()} FALLÓ")
+        if ataque.ataque_robot() == True:
+            ataque.usar() #¿SE PUEDE USAR EL ATAQUE? FALTA VER EL TEMA DE DISMINUCION DE TURNOS RESTANTES
+            if probabilidad <= precision:
+                print(f"EL ATAQUE {ataque.get_nombre_ataque()} ACERTÓ")
+                robot.recibir_daño(daño)
+            else: 
+                print(f"EL ATAQUE {ataque.get_nombre_ataque()} FALLÓ")
+    
+    def atacar_team(self, robots, ataque):
+        daño = ataque.get_daño()
+        probabilidad = random.randint(10, 100)
+        if ataque.ataque_robot() == False:
+            ataque.usar()
+            #RECORRER EL EQUIPO ATACADO Y DISMINUIR SU ENERGIA ACERTANDO O FALLANDO
+            for robot in robots:
+                if probabilidad <= ataque.get_precision():
+                    print(f"EL ATAQUE {ataque.get_nombre_ataque()} ACERTÓ") 
+                    robot.recibir_daño(daño)
+                else:
+                    print(f"EL ATAQUE {ataque.get_nombre_ataque()} FALLÓ")
+
 
     def acivar_habilidad(self, evento):
         pass
@@ -69,3 +88,13 @@ class Robot:
     
     def reset_stats(self):
         self.energia_actual = self.energia
+    
+    def reset_v_d(self):
+        self.victorias = 0
+        self.derrotas = 0
+
+    def add_victoria(self):
+        self.victorias = self.victorias + 1
+
+    def add_derrota(self):
+        self.derrotas = self.derrotas + 1
