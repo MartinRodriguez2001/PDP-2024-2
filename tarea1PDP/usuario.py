@@ -1,5 +1,6 @@
 from batalla import Batalla
 from main import RobotLoader
+from classCompeticion.competicion import Competicion
 
 class Usuario:
     def __init__(self):
@@ -23,8 +24,8 @@ class Usuario:
                 print("\n")
 
                 if self.modo_juego == 1:
-                    batalla1 = Batalla(robots)
-                    batalla1.iniciar()
+                    competicion = Competicion(robots)
+                    competicion.iniciar_competencia()
 
                 elif self.modo_juego == 2:
                     print("EL MODO ESTARÁ PROXIMAMENTE\n")
