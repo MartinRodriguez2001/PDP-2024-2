@@ -9,5 +9,6 @@ class Competicion:
         batalla1.opcion_batalla()
 
 
-    def registrar_resultado(self):
-        pass
+
+    def registrar_resultado(self, ganadores_lista, perdedores_lista):
+            pass
