@@ -10,6 +10,12 @@ class Robot:
         self.ataques = []
         self.habilidades = []
 
+    def get_victorias(self):
+        return self.victorias
+    
+    def get_derrotas(self):
+        return self.derrotas
+
     def get_info_robot(self):
         print("----------------------")
         print(f"|NOMBRE: {self.nombre}")
