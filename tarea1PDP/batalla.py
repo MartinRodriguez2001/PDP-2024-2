@@ -1,6 +1,7 @@
 from classRobot.robot import Robot
 from classRobot.ataque import Ataque
 from classRobot.habilidad import Habilidad
+from reporte import Reporte
 import time
 
 class Batalla:
@@ -11,13 +12,16 @@ class Batalla:
         self.ganador = []
         self.perdedor = []
 
+    def get_robots(self):
+        return self.robots
+
     #ELECCION DE PERSONAJE ALEATORIO
     def batalla_aleatoria(self, r1, r2):
         print(f"BATALLA ENTRE {r1.get_nombre().upper()} Y {r2.get_nombre().upper()} VA A COMENZAR \n")
         print("INFORMACION DE LOS PARTICIPANTES: ")
         r1.get_info_robot()
         r2.get_info_robot()
-        time.sleep(2)
+        #time.sleep(2)
 
         atacante, defensor = r1, r2
         self.movimientos_aleatorios_1v1(atacante, defensor)
@@ -31,7 +35,7 @@ class Batalla:
     def movimientos_aleatorios_1v1(self, r1, r2):
         while r1.energia_actual > 0 and r2.energia_actual > 0:
             self.turno(r1, r2)
-            time.sleep(1)
+            #stime.sleep(1)
             r1, r2 = r2, r1
             self.finalizar_batalla(r1, r2)
 
@@ -71,6 +75,7 @@ class Batalla:
             print("1. SIGUIENTE PELEA")
             print("2. REPORTE")
             print("3. SALIR")
+            reporte1 = Reporte(self.robots)
             try:
                 opcion = int(input("INGRESE UNA OPCION: "))
                 print("\n")
@@ -79,7 +84,7 @@ class Batalla:
                     self.batalla_aleatoria(r1, r2)
                 
                 elif opcion == 2:
-                    pass
+                    reporte1.eleccion_reporte()
                 
                 elif opcion == 3:
                     break
@@ -99,18 +104,16 @@ class Batalla:
             print(f"EL GANADOR ES {r1.get_nombre().upper()}")
             r1.add_victoria()
             r2.add_derrota()
-            #self.ganador.append(r1)
-            #self.perdedor.append(r2)
         
         elif r1.energia_actual <= 0 and r2.energia_actual > 0:
             print(f"EL GANADOR ES {r2.get_nombre().upper()}")
             r2.add_victoria()
             r1.add_derrota()
-            #self.ganador.append(r2)
-            #self.perdedor.append(r1)
+    
     
     def get_nombres_robots(self):
         return self.robots
+    
 
 
 #ALGO RARO TIENE ESTO, NO LO HE REVISADO, PROBABLEMENTE TENGA ALGO MALO 
@@ -160,11 +163,5 @@ class Batalla:
             except ValueError:
                 print("ERROR: LA ENTRADA NO CORRESPONE")
                 continue
-    
-    def get_ganadores(self):
-        return self.ganador
-    
-    def get_perdedor(self):
-        return self.perdedor
 
 
