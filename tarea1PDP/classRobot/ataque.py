@@ -14,6 +14,12 @@ class Ataque:
         self.recarga = recarga
         #int que muestra cuantos turnos le faltan para volver a usar el ataque
         self.turnos_restantes = turnos_restantes
+    def get_objetivo(self):
+        return self.objetivo
+    
+    def actualizar_enfriamiento(self):
+        if self.turnos_restantes > 0:
+            self.turnos_restantes -= 1
 
     def get_nombre_ataque(self):
         return self.nombre
@@ -51,9 +57,8 @@ class Ataque:
             return True
         
     def usar(self):
-        if self.puede_usarse() == True:
-            self.turnos_restantes = self.turnos_restantes + self.recarga
+        if self.puede_usarse():
+            self.turnos_restantes = self.recarga  # Establece los turnos de enfriamiento
             return self.daño
         else:
             return f"EL ATAQUE {self.nombre.upper()} NO PUEDE USARSE, SE ESTA RECARGANDO. TURNOS RESTANTES: {self.turnos_restantes}"
-
