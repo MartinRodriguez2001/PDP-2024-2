@@ -10,7 +10,7 @@
                     "objective": "robot",
                     "damage": 25,
                     "precision": 90,
-                    "recharge": 2
+                    "recharge": 0
                 },
                 {
                     "name": "Shadow Clone Jutsu",
@@ -18,7 +18,15 @@
                     "objective": "team",
                     "damage": 20,
                     "precision": 100,
-                    "recharge": 3
+                    "recharge": 1
+                },
+                {
+                    "name": "Rasengan Shuriken",
+                    "type": "hand",
+                    "objective": "robot",
+                    "damage": 25,
+                    "precision": 90,
+                    "recharge": 0
                 }
             ],
             "skills": [
@@ -52,7 +60,7 @@
                     "objective": "robot",
                     "damage": 25,
                     "precision": 85,
-                    "recharge": 3
+                    "recharge": 0
                 },
                 {
                     "name": "Fireball Jutsu",
@@ -60,7 +68,15 @@
                     "objective": "robot",
                     "damage": 26,
                     "precision": 95,
-                    "recharge": 2
+                    "recharge": 1
+                },
+                {
+                    "name": "Flor del Fenix",
+                    "type": "long",
+                    "objective": "robot",
+                    "damage": 26,
+                    "precision": 95,
+                    "recharge": 0
                 }
             ],
             "skills": [
