@@ -60,18 +60,27 @@ class Robot:
         return random.choice(self.habilidades)
     
     def atacar_robot(self, robot, ataque):
+        if ataque.get_objetivo() == "team":  # Verifica si el ataque es para un equipo
+            return False  # Indica que el ataque no se realizó
+
         daño = ataque.get_daño()
         precision = ataque.get_precision()
         probabilidad = random.randint(10, 100)
-
-        if ataque.ataque_robot() == True:
-            ataque.usar() #¿SE PUEDE USAR EL ATAQUE? FALTA VER EL TEMA DE DISMINUCION DE TURNOS RESTANTES
+                    
+        if ataque.ataque_robot():
+            ataque.usar()  # Disminución de turnos restantes, o algún otro efecto
             if probabilidad <= precision:
                 print(f"EL ATAQUE {ataque.get_nombre_ataque()} ACERTÓ")
                 robot.recibir_daño(daño)
             else: 
                 print(f"EL ATAQUE {ataque.get_nombre_ataque()} FALLÓ")
-    
+        else:
+            print(f"EL ATAQUE {ataque.get_nombre_ataque()} NO SE PUEDE USAR")
+        
+        return True  # Indica que el ataque se realizó
+            
+                    
+    """
     def atacar_team(self, robots, ataque):
         daño = ataque.get_daño()
         probabilidad = random.randint(10, 100)
@@ -84,6 +93,7 @@ class Robot:
                     robot.recibir_daño(daño)
                 else:
                     print(f"EL ATAQUE {ataque.get_nombre_ataque()} FALLÓ")
+    """
 
 
     def acivar_habilidad(self, evento):
