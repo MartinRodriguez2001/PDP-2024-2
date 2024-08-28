@@ -35,7 +35,7 @@ class Batalla:
     def movimientos_aleatorios_1v1(self, r1, r2):
         while r1.energia_actual > 0 and r2.energia_actual > 0:
             self.turno(r1, r2)
-            #stime.sleep(1)
+            #time.sleep(1)
             r1, r2 = r2, r1
             self.finalizar_batalla(r1, r2)
 
@@ -95,9 +95,22 @@ class Batalla:
 
 
     def turno(self, atacante, defensor):
-        mov = atacante.random_ataque()
-        atacante.atacar_robot(defensor, mov)
-        print(f"{atacante.get_nombre().upper()} USO {mov.get_nombre_ataque().upper()} CONTRA {defensor.get_nombre().upper()}. {defensor.get_nombre().upper()} TIENE {defensor.get_energia_actual()} DE ENERGIA\n")
+        while True:
+            mov = atacante.random_ataque()
+            if not mov.puede_usarse():  # Si el ataque no puede usarse, saltamos a otro
+                print(f"EL ATAQUE {mov.get_nombre_ataque().upper()} ESTÁ EN ENFRIAMIENTO. TURNOS RESTANTES: {mov.turnos_restantes}")
+                continue
+        
+            resultado_ataque = atacante.atacar_robot(defensor, mov)
+            if resultado_ataque:
+                mov.usar()  # Usar el ataque y establecer el enfriamiento
+                break  # Si el ataque fue realizado, termina el ciclo
+
+    # Actualiza los turnos restantes de enfriamiento para todos los ataques
+        for ataque in atacante.ataques:  # Suponiendo que `ataques` es una lista de todos los ataques del robot
+            ataque.actualizar_enfriamiento()
+    
+        print(f"{atacante.get_nombre().upper()} USÓ {mov.get_nombre_ataque().upper()} CONTRA {defensor.get_nombre().upper()}. {defensor.get_nombre().upper()} TIENE {defensor.get_energia_actual()} DE ENERGÍA\n")
 
     def finalizar_batalla(self, r1, r2):
         if r1.energia_actual > 0 and r2.energia_actual <= 0:
